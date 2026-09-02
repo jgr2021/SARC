@@ -1,0 +1,10 @@
+system,microphones,implementation_status,parameters,delta_si_sdr_db_mean,delta_si_sdr_db_sd,stoi_mean,stoi_sd,pesq_mean,pesq_sd
+Input microphone,1,unprocessed reference,0,0,,0.766,,1.237,
+Norm-constrained GSC,4,published family local implementation,0,7.854,,0.922,,1.583,
+Online SDW-MWF,4,published equations,0,8.138,,0.874,,1.593,
+ML-AIC,4,published equations,0,13.403,,0.988,,2.288,
+Online McNet,4,author code/checkpoint adapted,1837250,11.355,0.700,0.915,0.008,2.263,0.071
+AFnet,4,paper-faithful reimplementation,2554896,10.102,0.018,0.923,0.005,2.257,0.059
+EaBNet,4,official architecture locally trained,2825160,12.105,0.133,0.933,0.001,2.142,0.062
+SARC,4,proposed,46834,17.527,0.053,0.961,0.001,2.730,0.057
+

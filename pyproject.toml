@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sarc-speech-enhancement"
+version = "0.1.0"
+description = "Structured Analytic-Residual Correction for calibrated multichannel speech enhancement"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy",
+  "scipy",
+  "soundfile",
+  "torch",
+]
+
+[tool.setuptools.packages.find]
+include = ["sarc*"]
+

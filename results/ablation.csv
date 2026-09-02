@@ -1,0 +1,7 @@
+configuration,delta_si_sdr_db_mean,delta_si_sdr_db_sd
+Analytic z only,11.333,0.276
+Identity precision + correction,13.798,0.230
+Direct canonical mapping,14.198,0.543
+ML-AIC + same correction,15.301,0.749
+SARC,17.527,0.053
+
