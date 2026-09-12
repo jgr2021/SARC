@@ -18,3 +18,9 @@ external_data/
 outputs/
 private/
 
+# Keep manuscript source and PDFs out of the public repository.
+paper/manuscript/
+paper/SARC_Manuscript*.zip
+*.tex
+*.pdf
+

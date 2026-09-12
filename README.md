@@ -20,12 +20,8 @@ On the fixed four-microphone evaluation set, SARC achieves
 **2.730 +/- 0.057 PESQ** over three runs. The complete model has 46,834
 parameters. Machine-readable tables are available in [`results/`](results/).
 
-## Current manuscript
+## Architecture and runtime
 
-The current manuscript and editable figures are available in
-[`paper/manuscript/`](paper/manuscript/), including the
-[PDF](paper/manuscript/Template.pdf) and
-[LaTeX source package](paper/SARC_Manuscript_v10.zip).
 The architecture uses single convolution blocks marked ×4, feature-map labels,
 and the precision factorization `Psi = L L^H`.
 
@@ -80,7 +76,7 @@ SARC/
 |-- checkpoints/   three frozen SARC runs
 |-- results/       paper tables in CSV form
 |-- docs/          data and reproducibility notes
-|-- paper/         architecture figure and current manuscript
+|-- paper/         architecture figure
 `-- tests/         structural tests
 ```
 
