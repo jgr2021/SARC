@@ -4,21 +4,38 @@ This repository contains the PyTorch implementation and frozen checkpoints for
 **Structured Analytic-Residual Correction (SARC)**, a lightweight calibrated
 four-microphone speech-enhancement method.
 
-SARC first divides out a measured frontal relative transfer function (RTF), so
+SARC first divides out a fixed frontal relative transfer function (RTF), so
 the modeled target is common across microphones. A precision network produces a
 Hermitian positive-definite matrix and an analytic unit-response estimate `z`.
-The deterministic residual `r = y - 1z` keeps the array information omitted by
-scalar estimation, because `y = 1z + r`. A second network uses `(z, r, v)` to
+The spatial residual `r = y - 1z` exposes channel-to-channel nuisance differences
+to guide correction of interference remaining in `z`. A second network uses `(z, r, v)` to
 predict a bounded complex correction, and the enhanced STFT is `z + delta`.
 
 ![SARC architecture](paper/sarc_architecture.png)
 
 ## Main result
 
-On the frozen four-microphone Shokz evaluation set, SARC achieves
+On the fixed four-microphone evaluation set, SARC achieves
 **17.527 +/- 0.053 dB SI-SDR improvement**, **0.961 +/- 0.001 STOI**, and
 **2.730 +/- 0.057 PESQ** over three runs. The complete model has 46,834
 parameters. Machine-readable tables are available in [`results/`](results/).
+
+## Current manuscript
+
+The current manuscript and editable figures are available in
+[`paper/manuscript/`](paper/manuscript/), including the
+[PDF](paper/manuscript/Template.pdf) and
+[LaTeX source package](paper/SARC_Manuscript_v10.zip).
+The architecture uses single convolution blocks marked ×4, feature-map labels,
+and the precision factorization `Psi = L L^H`.
+
+The precision and correction networks contain 18,768 and 28,066 trainable
+parameters, respectively. These are parameter counts, not storage units.
+The bidirectional GRU operates along frequency, not future time frames.
+
+Table 1 includes CPU and GPU full-utterance runtimes; see
+[`docs/RUNTIME.md`](docs/RUNTIME.md) for the protocol and limitations.
+These are implementation timings, not proof of real-time streaming deployment.
 
 ## Installation
 
@@ -41,7 +58,7 @@ python scripts/infer.py input_4ch.wav enhanced.wav \
   --checkpoint checkpoints/sarc_seed1.pt
 ```
 
-The measured RTF is stored in the checkpoint. The command writes a mono
+The fixed RTF is stored in the checkpoint. The command writes a mono
 floating-point WAV file.
 
 ## Verification
@@ -63,13 +80,13 @@ SARC/
 |-- checkpoints/   three frozen SARC runs
 |-- results/       paper tables in CSV form
 |-- docs/          data and reproducibility notes
-|-- paper/         architecture figure
+|-- paper/         architecture figure and current manuscript
 `-- tests/         structural tests
 ```
 
 ## Data availability
 
-The private Shokz recordings are not redistributed. See [`docs/DATA.md`](docs/DATA.md)
+Evaluation audio is not included. See [`docs/DATA.md`](docs/DATA.md)
 for the required input format and calibration assumptions.
 
 For retraining, place fixed-length `.npz` examples in one directory. Each file

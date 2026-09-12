@@ -97,7 +97,7 @@ class SARCSpatial(nn.Module):
         self.head = nn.Linear(gru_hidden, self.precision_parameter_count)
 
     def target_normalize(self, mixture: torch.Tensor) -> torch.Tensor:
-        """Divide out the measured target RTF so target speech is common across mics."""
+        """Divide out the fixed target RTF so target speech is common across mics."""
         return mixture / self.target_transfer.T[None, :, :, None]
 
     def _features_from_aligned(self, aligned: torch.Tensor) -> torch.Tensor:

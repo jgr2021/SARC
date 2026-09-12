@@ -1,4 +1,4 @@
-"""Remove local paths and historical prototype labels from release checkpoints."""
+"""Remove local paths and historical labels from release checkpoints."""
 
 from __future__ import annotations
 
