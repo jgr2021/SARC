@@ -82,8 +82,12 @@ SARC/
 
 ## Data availability
 
-Evaluation audio is not included. See [`docs/DATA.md`](docs/DATA.md)
-for the required input format and calibration assumptions.
+The evaluation mixtures combine public LibriSpeech speech and ESC-50 sounds
+with confidential spatial transfer assets; they are not a public-only synthetic
+dataset and the final audio is not distributed. See [`docs/DATA.md`](docs/DATA.md)
+for source links, training/evaluation construction, and reproducibility limits.
+The [80-trial public-source manifest](data/manifests/evaluation_public_sources.csv)
+is available without restricted spatial assets or internal identifiers.
 
 For retraining, place fixed-length `.npz` examples in one directory. Each file
 must contain float32 arrays `mixture` with shape `[4, samples]` and `target` with
