@@ -95,8 +95,14 @@ shape `[samples]`, together with a complex `[257, 4]` RTF saved as `.npy`:
 
 ```bash
 python scripts/train.py --train data/train --rtf data/target_rtf.npy \
-  --output outputs/sarc.pt
+  --validation data/validation --seed-index 1 --output outputs/sarc.pt
 ```
+
+The training recipe follows the successful Table 1 experiments, including
+stage-specific seeds, batch sizes (3, 4, 3), numerical floors, and selection
+of the best validation checkpoint at each stage. See
+[`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) for the original online-batch
+interface and the limits of retraining from pre-rendered NPZ pairs.
 
 ## Citation
 

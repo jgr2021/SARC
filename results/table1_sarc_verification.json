@@ -1,0 +1,58 @@
+{
+  "date": "2026-09-15",
+  "model": "SARC",
+  "trials": 80,
+  "seeds": 3,
+  "checkpoint_sha256": {
+    "sarc_seed1.pt": "5410b43ae53248c6baa0a593615c6e22247d95d71c300d4cbaca486e1d90d503",
+    "sarc_seed2.pt": "15d86f9b0744e6caa3afb5ae5e20d33dcb0e6556e82be9d95de64ac5b2ef3890",
+    "sarc_seed3.pt": "68bda74837853a451b1efe55a96c3ac4d7cbf8defbeaf4801952dfb66d79cb1c"
+  },
+  "torch_version": "2.5.1+cu124",
+  "device": "cuda",
+  "seed_results": [
+    {
+      "seed": 1,
+      "delta_si_sdr_db": 17.584339236806365,
+      "stoi": 0.9623924005059774,
+      "pesq": 2.7189906641840933
+    },
+    {
+      "seed": 2,
+      "delta_si_sdr_db": 17.518680472395395,
+      "stoi": 0.9611893683121829,
+      "pesq": 2.791390474140644
+    },
+    {
+      "seed": 3,
+      "delta_si_sdr_db": 17.479425117077092,
+      "stoi": 0.9595320611596592,
+      "pesq": 2.6781768605113028
+    }
+  ],
+  "aggregate": {
+    "delta_si_sdr_db": {
+      "mean": 17.52748160875962,
+      "sample_sd": 0.05300790630291166
+    },
+    "stoi": {
+      "mean": 0.9610379433259398,
+      "sample_sd": 0.00143616936287755
+    },
+    "pesq": {
+      "mean": 2.729519332945346,
+      "sample_sd": 0.05733646507386532
+    }
+  },
+  "matches_table1_at_three_decimals": {
+    "delta_si_sdr_db": true,
+    "stoi": true,
+    "pesq": true
+  },
+  "max_waveform_difference_vs_archived": [
+    0.000013014767318964005,
+    0.000027377158403396606,
+    0.000011709984391927719
+  ],
+  "scope": "Rerendered with the public model and public checkpoints; scored on the original restricted benchmark with the original shared metric scaling. Does not establish public data availability or from-scratch retraining equivalence."
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "stage": "spatial",
+    "amplitude": 0.03,
+    "initialization_equal": true,
+    "original_loss": 2.000455856323242,
+    "public_loss": 2.000455856323242,
+    "gradient_max_difference": 0,
+    "updated_state_max_difference": 0
+  },
+  {
+    "stage": "correction",
+    "amplitude": 0.03,
+    "initialization_equal": true,
+    "original_loss": 2.3519344329833984,
+    "public_loss": 2.3519344329833984,
+    "gradient_max_difference": 0,
+    "updated_state_max_difference": 0
+  },
+  {
+    "stage": "joint",
+    "amplitude": 0.03,
+    "initialization_equal": true,
+    "original_loss": 2.6492512226104736,
+    "public_loss": 2.6492512226104736,
+    "gradient_max_difference": 5.960464477539063e-8,
+    "updated_state_max_difference": 1.0803341865539551e-7
+  },
+  {
+    "stage": "spatial",
+    "amplitude": 1e-7,
+    "initialization_equal": true,
+    "original_loss": 1.7947181463241577,
+    "public_loss": 1.7947181463241577,
+    "gradient_max_difference": 0,
+    "updated_state_max_difference": 0
+  },
+  {
+    "stage": "correction",
+    "amplitude": 1e-7,
+    "initialization_equal": true,
+    "original_loss": 1.8401861190795898,
+    "public_loss": 1.8401861190795898,
+    "gradient_max_difference": 0,
+    "updated_state_max_difference": 0
+  },
+  {
+    "stage": "joint",
+    "amplitude": 1e-7,
+    "initialization_equal": true,
+    "original_loss": 2.039431571960449,
+    "public_loss": 2.039431571960449,
+    "gradient_max_difference": 0,
+    "updated_state_max_difference": 0
+  }
+]
