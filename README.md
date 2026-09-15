@@ -100,5 +100,16 @@ python scripts/train.py --train data/train --rtf data/target_rtf.npy \
 
 ## Citation
 
-The bibliographic entry will be added after acceptance. Until then, please cite
-the repository and the accompanying manuscript.
+If you use SARC in your research, please cite:
+
+> G. Jin, X.-P. Zhang, L. Xiao, Y. Wang, and Z. Liu, “SARC: Structured Analytic-Residual Correction for Lightweight Multichannel Speech Enhancement,” manuscript submitted to the IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP 2027), 2026.
+
+```bibtex
+@unpublished{jin2026sarc,
+  author = {Jin, Gurui and Zhang, Xiao-Ping and Xiao, Le and Wang, Yue and Liu, Zhenyu},
+  title  = {{SARC}: Structured Analytic-Residual Correction for Lightweight Multichannel Speech Enhancement},
+  year   = {2026},
+  note   = {Manuscript submitted to the IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP 2027)},
+  url    = {https://github.com/jgr2021/SARC}
+}
+```
