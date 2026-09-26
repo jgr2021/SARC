@@ -5,7 +5,7 @@ This repository contains the PyTorch implementation and frozen checkpoints for
 four-microphone speech-enhancement method.
 
 **Authors:** Gurui Jin, Xiao-Ping Zhang, Le Xiao, Yue Wang, and Zhenyu Liu.
-This is a research manuscript and code release; no publication or acceptance is claimed.
+**Status:** Submitted to ICASSP 2027. Acceptance or publication is not claimed.
 
 ## Background and problem
 
@@ -145,14 +145,14 @@ interface and the limits of retraining from pre-rendered NPZ pairs.
 
 If you use SARC in your research, please cite:
 
-> G. Jin, X.-P. Zhang, L. Xiao, Y. Wang, and Z. Liu, “SARC: Structured Analytic-Residual Correction for Lightweight Multichannel Speech Enhancement,” research manuscript, 2026.
+> G. Jin, X.-P. Zhang, L. Xiao, Y. Wang, and Z. Liu, “SARC: Structured Analytic-Residual Correction for Lightweight Multichannel Speech Enhancement,” submitted to ICASSP 2027, 2026.
 
 ```bibtex
 @unpublished{jin2026sarc,
   author = {Jin, Gurui and Zhang, Xiao-Ping and Xiao, Le and Wang, Yue and Liu, Zhenyu},
   title = {{SARC}: Structured Analytic-Residual Correction for Lightweight Multichannel Speech Enhancement},
   year = {2026},
-  note = {Research manuscript},
+  note = {Submitted to ICASSP 2027},
   url = {https://github.com/jgr2021/SARC}
 }
 ```
