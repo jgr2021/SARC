@@ -13,7 +13,7 @@ def load_sarc(
     checkpoint_path: str | Path,
     device: torch.device | str = "cpu",
 ) -> tuple[SARC, dict]:
-    checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
+    checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=True)
     if "target_transfer" not in checkpoint or "model_state" not in checkpoint:
         raise ValueError("checkpoint must contain target_transfer and model_state")
     model = SARC(checkpoint["target_transfer"], freeze_spatial=False)

@@ -32,5 +32,7 @@ class NpzWaveDataset(Dataset):
             raise ValueError(f"{self.paths[index]}: mixture must have shape [4,N]")
         if target.ndim != 1 or target.shape[0] != mixture.shape[1]:
             raise ValueError(f"{self.paths[index]}: target must have shape [N]")
+        if target.size == 0 or not np.isfinite(mixture).all() or not np.isfinite(target).all():
+            raise ValueError(f"{self.paths[index]}: waveforms must be nonempty and finite")
         return torch.from_numpy(mixture), torch.from_numpy(target)
 

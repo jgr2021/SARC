@@ -28,6 +28,12 @@ def stft(audio: torch.Tensor, window: torch.Tensor, config: STFTConfig) -> torch
     if audio.ndim != 3:
         raise ValueError("audio must have shape [M,N] or [B,M,N]")
     batch, microphones, samples = audio.shape
+    if batch == 0 or microphones == 0 or samples == 0:
+        raise ValueError("audio dimensions must be nonempty")
+    if config.center and samples <= config.n_fft // 2:
+        raise ValueError("centered reflect-padded STFT requires more than n_fft/2 samples")
+    if not audio.is_floating_point() or not torch.isfinite(audio).all():
+        raise ValueError("audio must contain finite real floating-point samples")
     spectrum = torch.stft(
         audio.reshape(batch * microphones, samples),
         n_fft=config.n_fft,

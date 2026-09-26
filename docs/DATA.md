@@ -45,8 +45,9 @@ in this release; downloading an arbitrary LibriSpeech subset will not recreate
 the exact original training stream.
 
 The released [training script](../scripts/train.py) accepts pre-rendered NPZ
-pairs. It is a public retraining interface, not the original confidential
-online data generator.
+pairs or a user-supplied online STFT batch factory. These are public retraining
+interfaces, not the original confidential online data generator; see
+[the factory contract](REPRODUCIBILITY.md#online-data-boundary).
 
 ## 3. Fixed evaluation set
 

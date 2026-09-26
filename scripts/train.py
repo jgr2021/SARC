@@ -40,7 +40,8 @@ def parse_args() -> argparse.Namespace:
     elif args.train.resolve() == args.validation.resolve():
         parser.error("training and validation directories must differ")
     if min(args.spatial_updates, args.correction_updates, args.joint_updates,
-           args.validation_every, args.validation_batches, args.batch_size or 1) < 1:
+           args.validation_every, args.validation_batches,
+           args.batch_size if args.batch_size is not None else 1) < 1:
         parser.error("update counts and batch sizes must be positive")
     return args
 

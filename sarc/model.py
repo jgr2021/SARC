@@ -83,8 +83,8 @@ class SARCSpatial(nn.Module):
             raise ValueError("target_transfer must be complex [F,M], M>=2")
         if not torch.is_complex(target_transfer):
             raise ValueError("target_transfer must be complex")
-        if torch.any(target_transfer.abs() <= 0):
-            raise ValueError("RTF entries must be nonzero")
+        if not torch.isfinite(target_transfer).all() or torch.any(target_transfer.abs() <= 0):
+            raise ValueError("RTF entries must be finite and nonzero")
         self.sensor_count = int(target_transfer.shape[1])
         self.feature_count = 3 * self.sensor_count + 4
         self.precision_parameter_count = self.sensor_count**2
@@ -135,9 +135,12 @@ class SARCSpatial(nn.Module):
         if (
             mixture.ndim != 4
             or mixture.shape[1] != self.sensor_count
+            or mixture.shape[2] != self.target_transfer.shape[0]
+            or mixture.shape[0] == 0
+            or mixture.shape[3] == 0
             or not torch.is_complex(mixture)
         ):
-            raise ValueError("mixture must be complex [B,M,F,T]")
+            raise ValueError("mixture must be complex nonempty [B,M,F,T] matching the RTF")
 
         aligned = self.target_normalize(mixture)
         value = F.leaky_relu(
